@@ -35,6 +35,7 @@ import com.google.common.collect.Iterables;
 import org.cadixdev.lorenz.MappingSet;
 import org.cadixdev.mercury.Mercury;
 import org.cadixdev.mercury.remapper.MercuryRemapper;
+import org.cadixdev.mercury.mixin.MixinRemapper;
 import org.gradle.api.GradleException;
 import org.gradle.api.IllegalDependencyNotation;
 import org.gradle.api.JavaVersion;
@@ -202,6 +203,7 @@ public abstract class MigrateMappingsTask extends AbstractLoomTask {
 			}
 		}
 
+		mercury.getProcessors().add(MixinRemapper.create(mappingSet));
 		mercury.getProcessors().add(MercuryRemapper.create(mappingSet));
 
 		try {

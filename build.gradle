@@ -75,6 +75,7 @@ repositories {
 	mavenCentral()
 	maven { url "https://maven.fabricmc.net/" }
 	maven { url "https://maven.architectury.dev/" }
+        mavenLocal()
 	maven {
 		url "https://maven.minecraftforge.net/"
 		content {
@@ -170,7 +171,8 @@ dependencies {
 	implementation sourceSets.vineflower.output
 
 	// source code remapping
-	implementation libs.fabric.mercury
+        implementation ('dev.architectury:mercury:0.1.2.15')
+        implementation ('dev.architectury:mercurymixin:0.1.0-SNAPSHOT')
 
 	// Kotlin
 	implementation(libs.kotlin.metadata) {
